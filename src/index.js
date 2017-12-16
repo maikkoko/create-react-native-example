@@ -4,13 +4,13 @@ import { Provider } from 'react-redux'
 import createStore from './store'
 import './config/ReactotronConfig'
 
-import Counters from './containers/Counter'
+import Scenes from './scenes'
 
 const store = createStore()
 
 const Main = () => (
   <Provider store={store}>
-    <Counters />
+    <Scenes />
   </Provider>
 )
 

@@ -1,16 +1,7 @@
-import {
-  createStore as _createStore,
-  applyMiddleware,
-  combineReducers,
-  compose
-} from 'redux'
+import { createStore as _createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
-import counterReducer from './modules/counter'
+import reducers from './reducers'
 import Reactotron from 'reactotron-react-native'
-
-const reducer = combineReducers({
-  counter: counterReducer
-})
 
 const middleware = applyMiddleware(thunk)
 
@@ -24,13 +15,13 @@ export default function createStore(initialValue = {}) {
       : compose
     // Create the redux store.
     store = Reactotron.createStore(
-      reducer,
+      reducers,
       initialValue,
       composeEnhancers(middleware)
     )
   } else {
     // Production mode.
-    store = _createStore(reducer, initialValue, middleware)
+    store = _createStore(reducers, initialValue, middleware)
   }
 
   return store

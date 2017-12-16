@@ -17,7 +17,7 @@
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "react-native-scripts start",
+    "start": "NODE_PATH=src react-native-scripts start",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
@@ -30,6 +30,7 @@
     "expo": "^23.0.4",
     "react": "16.0.0",
     "react-native": "0.50.3",
+    "react-native-router-flux": "^4.0.0-beta.24",
     "react-redux": "^5.0.6",
     "redux-thunk": "^2.2.0"
   }

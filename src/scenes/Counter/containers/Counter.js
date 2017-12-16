@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import Counters from '../components/Counters'
-import * as actionCreators from '../store/modules/counter'
+import * as actionCreators from '../../../store/reducers/counter'
 
 const createActionDispatchers = actionCreators => dispatch =>
   Object.keys(actionCreators).reduce((actionDispatchers, name) => {
