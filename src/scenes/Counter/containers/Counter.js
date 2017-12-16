@@ -13,6 +13,7 @@ const createActionDispatchers = actionCreators => dispatch =>
   }, {})
 
 const mapStateToProps = state => ({
+  routes: state.routes,
   countersState: state.counter // gives our component access to state through props.countersState
 })
 

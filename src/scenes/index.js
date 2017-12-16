@@ -1,13 +1,27 @@
 import React, { Component } from 'react'
-import { Router, Scene } from 'react-native-router-flux'
+import { func } from 'prop-types'
+import { Router, Scene, Reducer } from 'react-native-router-flux'
+import { connect } from 'react-redux'
 
 import Home from './Home'
 import Counter from './Counter'
 
 class Routes extends Component {
+  static propTypes = {
+    dispatch: func
+  }
+
+  reducerCreate = params => {
+    const defaultReducer = new Reducer(params)
+    return (state, action) => {
+      this.props.dispatch(action)
+      return defaultReducer(state, action)
+    }
+  }
+
   render() {
     return (
-      <Router>
+      <Router createReducer={this.reducerCreate}>
         <Scene key="root">
           <Scene key="home" component={Home} title="Home" initial />
           <Scene key="counter" component={Counter} title="Counter" />
@@ -17,4 +31,4 @@ class Routes extends Component {
   }
 }
 
-export default Routes
+export default connect()(Routes)

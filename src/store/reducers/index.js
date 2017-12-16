@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 
-import counterReducer from './counter'
+import counter from './counter'
+import routes from './routes'
 
 const reducers = combineReducers({
-  counter: counterReducer
+  counter,
+  routes
 })
 
 export default reducers
